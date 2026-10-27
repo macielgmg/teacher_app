@@ -1,0 +1,140 @@
+{
+  "info": {
+    "name": "API Produtos - Gabriel Maciel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "codigoPessoa", "value": "1528156" }
+  ],
+  "item": [
+    {
+      "name": "1. POST - Cadastrar produto (código de pessoa)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Mouse Gamer RGB\",\n  \"codigo\": \"{{codigoPessoa}}\",\n  \"preco\": 129.90,\n  \"descricao\": \"Mouse gamer com 7 botões e 12000 DPI\",\n  \"quantidadeEstoque\": 30,\n  \"avaliacao\": 4.7,\n  \"categoria\": \"Periféricos\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    },
+    {
+      "name": "2. POST - Cadastrar produto PRD-002",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Headset GX 1528\",\n  \"codigo\": \"PRD-002\",\n  \"preco\": 173.45,\n  \"descricao\": \"Headset com microfone para o setup do Gabriel Maciel\",\n  \"quantidadeEstoque\": 12,\n  \"avaliacao\": 4.3,\n  \"categoria\": \"Periféricos\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    },
+    {
+      "name": "3. POST - Cadastrar produto PRD-003",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Monitor LG 24 GXM\",\n  \"codigo\": \"PRD-003\",\n  \"preco\": 847.30,\n  \"descricao\": \"Monitor Full HD usado no quarto do Gabriel Maciel\",\n  \"quantidadeEstoque\": 4,\n  \"avaliacao\": 4.1,\n  \"categoria\": \"Monitores\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    },
+    {
+      "name": "4. POST - Cadastrar produto PRD-004",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Cadeira Gamer GXM\",\n  \"codigo\": \"PRD-004\",\n  \"preco\": 629.80,\n  \"descricao\": \"Cadeira do setup do Gabriel Maciel, apoio lombar ajustavel\",\n  \"quantidadeEstoque\": 3,\n  \"avaliacao\": 3.8,\n  \"categoria\": \"Moveis\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    },
+    {
+      "name": "5. GET - Listar todos os produtos",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    },
+    {
+      "name": "6. GET - Buscar pelo código de pessoa",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos/codigo/{{codigoPessoa}}", "host": ["{{baseUrl}}"], "path": ["produtos", "codigo", "{{codigoPessoa}}"] }
+      }
+    },
+    {
+      "name": "7. GET - Buscar pelo código PRD-003",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos/codigo/PRD-003", "host": ["{{baseUrl}}"], "path": ["produtos", "codigo", "PRD-003"] }
+      }
+    },
+    {
+      "name": "8. GET - Buscar pela categoria Periféricos",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos/categoria/Periféricos", "host": ["{{baseUrl}}"], "path": ["produtos", "categoria", "Periféricos"] }
+      }
+    },
+    {
+      "name": "9. GET - Buscar pela categoria Monitores",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos/categoria/Monitores", "host": ["{{baseUrl}}"], "path": ["produtos", "categoria", "Monitores"] }
+      }
+    },
+    {
+      "name": "10. PUT - Atualizar produto do código de pessoa",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Mouse Gamer RGB do Gabriel\",\n  \"preco\": 158.70,\n  \"quantidadeEstoque\": 22\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos/{{codigoPessoa}}", "host": ["{{baseUrl}}"], "path": ["produtos", "{{codigoPessoa}}"] }
+      }
+    },
+    {
+      "name": "11. PATCH - Atualizar avaliação do PRD-003",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"avaliacao\": 4.6\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/produtos/PRD-003", "host": ["{{baseUrl}}"], "path": ["produtos", "PRD-003"] }
+      }
+    },
+    {
+      "name": "12. DELETE - Remover produto PRD-004",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/produtos/PRD-004", "host": ["{{baseUrl}}"], "path": ["produtos", "PRD-004"] }
+      }
+    },
+    {
+      "name": "13. DELETE - Remover produto PRD-002",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "{{baseUrl}}/produtos/PRD-002", "host": ["{{baseUrl}}"], "path": ["produtos", "PRD-002"] }
+      }
+    },
+    {
+      "name": "14. GET - Listar todos após as exclusões",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/produtos", "host": ["{{baseUrl}}"], "path": ["produtos"] }
+      }
+    }
+  ]
+}
